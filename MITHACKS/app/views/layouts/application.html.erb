@@ -6,9 +6,25 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+ 
+      <%=javascript_include_tag 'tracking'%>
+      
+      <script src="https://use.fontawesome.com/c394850d91.js"></script>
+      <!-- style sheet for multiselect.js -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+      <script src="//assets.transloadit.com/js/jquery.transloadit2-v2-latest.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/device.js/0.2.7/device.min.js"></script>
+      <!-- script for multiselecting courses, grades, etc. -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js"></script>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+  <body class="<%=controller_name%> <%=action_name%>">
+
+      <% if user_signed_in? %>
+        <%= render 'layouts/navigation' %>
+      <% else %>
+        <%= render 'layouts/navigation_not_logged_in' unless devise_controller? %>
+      <% end %>
+
+    </body> 
 </html>
