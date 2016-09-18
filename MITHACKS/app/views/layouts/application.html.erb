@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MITHACKS</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<<<<<<< Updated upstream
  
       <%=javascript_include_tag 'tracking'%>
       
@@ -27,4 +27,104 @@
       <% end %>
 
     </body> 
+=======
+  
+      <title> Nice to Meet You</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="WTBU website">
+      <meta name="author" content="Scarleth Estevez">
+      <link rel="icon" href="./Drawing.png">
+      <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Pacifico" rel="stylesheet">
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+             <script src="//assets.transloadit.com/js/jquery.transloadit2-v2-latest.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/device.js/0.2.7/device.min.js"></script>
+      
+     
+       <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+       <link rel="stylesheet" href="./style.css">
+       
+       
+   </head>
+     
+    <style>
+        body{
+            background-color:whitesmoke;
+        }
+        h1{
+            font-family: 'Pacifico', cursive !important;
+            font-size: 50px;
+            color: dimgray;
+        }
+        button{
+            text-decoration: none;
+            border:none;
+            background: none;
+            outline: none;
+        }
+        #login{
+            display: none;
+        }
+        .blue{
+            color:#6eb6b3;
+        }
+    </style>
+    <script>
+    
+
+    </script>
+<center>
+    <h1> Nice To Meet You </h1>
+    
+    
+    <button data-target="#myModal" data-toggle="modal"><img src="handshake.png"></button>
+    </center>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <center>
+            <div class="modal-header"><h1><span class="blue">W</span>elcome, <span class="blue">N</span>ice to <span class="blue">M</span>eet<span class="blue"> Y</span>ou</h1></div>
+      <div class="modal-body">
+          <div class="btn btn-lg btn-block btn-info">LOGIN</div>
+          <div class="btn btn-lg btn-block btn-success">SIGN UP</div>
+          
+          
+        <form id="login">
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd">
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox"> Remember me</label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+            
+</form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+        </center>
+    </div>
+
+  </div>
+</div>
+
+>>>>>>> Stashed changes
 </html>
