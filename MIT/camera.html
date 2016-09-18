@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title> Nice to Meet You</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="WTBU website">
+      <meta name="author" content="Scarleth Estevez">
+      <link rel="icon" href="./Drawing.png">
+      <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Pacifico" rel="stylesheet">
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+             <script src="//assets.transloadit.com/js/jquery.transloadit2-v2-latest.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/device.js/0.2.7/device.min.js"></script>
+      
+     
+       <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+       <link rel="stylesheet" href="./style.css">
+       
+       
+   </head>
+      <nav class="navbar navbar-default navbar-fixed-top">
+         <div class="container-fluid">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>                        
+               </button>
+                <a class="navbar-brand" href="/sign.html"><span class="spacing">Nice to Meet You</span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+               <ul class="nav navbar-nav">
+                  <li ><a href="/index.html">&nbsp; <i class="fa fa-lg  fa-user" aria-hidden="true"> </i> Profile</a></li>
+                   <li ><a href="#">&nbsp; <i class="fa fa-lg fa-camera" aria-hidden="true">  </i> Camera</a></li>
+               
+                 
+               </ul>
+                
+                    
+
+ 
+            
+                
+            </div>
+          </div>
+      </nav>
+<style>
+    
+    .well{
+        position: relative;
+        top:-30px;
+    }
+    #my_camera{
+        position: relative;
+        margin-right:-150px;
+    }
+    </style>
+
+<div id="my_camera"></div>
+
+     <div class="well well-sm">
+        <center>
+        <img id="profileimage" class="img-responsive img-circle img-thumbnail" src="profile.jpg" width="180px">
+      <br>
+            <hr>
+        <p>
+            <span class="blue">Scarleth Estevez</span>
+        </p>
+        <p>
+            <span class="blue"> Email:</span> scarleth@bu.edu
+        </p>
+        <p>
+            <span class="blue">Company:</span> NiceToMeetYou
+        </p>
+            <p>
+                <span class="blue">Interests:</span> Videogames, Soccer, Films, Music
+            </p>
+            <p>
+                <span class="blue">Bio:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus ante quis erat luctus varius. Nullam consequat purus nec interdum egestas. Mauris vestibulum pulvinar vehicula. Sed in facilisis ante, id tempus sem. Nam fermentum laoreet sem et consequat. Quisque varius lectus nec turpis 
+                
+            </p>
+          </center>
+        </div>
+   
+   
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.6/webcam.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.3.0/js/canvas-to-blob.min.js"></script>
+
+<script>
+
+	// setup snapshot sound effect
+	var shutter = new Audio();
+	var audio_file = "<%= asset_path('shutter.mp3')%>";	
+
+	$(document).ready(function(){
+			$('#modalTakePic').modal('show'); 
+			// preload shutter audio clip
+			// shutter.autoplay = false;
+			//shutter.src = navigator.userAgent.match(/Firefox/) ? 'shutter.ogg' : 'shutter.mp3';		
+		
+				// Configure a few settings and attach camera
+				Webcam.set({
+					width: 375,
+					height: 340,
+			    	dest_width: 375,
+			    	dest_height: 340,			
+					image_format: 'jpeg',
+					jpeg_quality: 90,
+					swfURL: 'https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.6/webcam.swf'
+				});
+				Webcam.attach( '#my_camera' );	
+				$('#mobile_snapshot').hide();
+				$('#desktop_snapshot').show();
+				$('#retake_snapshot').hide();
+				$('#save_photo').hide();
+    });
+						
+	
+</script>
+
+
+	
+	
+	<!-- A button for taking snaps -->	
+	
+	
+	<!-- Code to handle taking the snapshot and displaying it locally -->
+	<script>
+
+		$(document).ready(function(){
+		    // $("#mobile_snapshot").change(function() {
+		    //     console.log('changed!');
+		    //     $('#save_photo').show();
+		    // });			
+			$('#mobile_snapshot').click(function(e){
+				console.log('hello');
+				$("#btnUpload").click();
+				return false; 
+			});	
+
+
+			$('#desktop_snapshot').click(function(e){
+				// play sound effect
+				//shutter.play();
+				
+				// freeze camera so user can preview pic
+				Webcam.freeze();
+				
+				// swap buttons
+				$('#desktop_snapshot').hide();
+				$('#retake_snapshot').show();
+				$('#save_photo').show();
+
+			});
+			$('#retake_snapshot').click(function(e){
+				// cancel preview freeze and return to live camera feed
+				Webcam.unfreeze();
+				
+				// swap buttons back
+				$('#desktop_snapshot').show();
+				$('#retake_snapshot').hide();
+				$('#save_photo').hide();
+			});
+			$('#save_photo').click(function(e){
+
+				$('#modalTakePic').modal('hide');  
+
+	            var tmpCanvas = document.createElement("canvas");
+	            tmpCanvas.id = 'myCanvas';
+	            document.body.appendChild(tmpCanvas); // adds the canvas to the body element
+	            tmpCanvas.style.display = 'none';
+
+	            var canvas2 = document.getElementById('myCanvas');
+	            canvas2.width = 375;
+	            canvas2.height = 340;
+	            var context2 = canvas2.getContext('2d'); 
+
+				Webcam.snap( function(data_uri, canvas, context) {
+
+					//$( tmpCanvas ).insertAfter( "#my_camera" );  // show the canvas
+					var b64Data = canvas.toDataURL();
+
+					// upload to server
+	                // load image from data url
+	                var imageObj = new Image();
+	                imageObj.src = b64Data;
+	                imageObj.onload = function() {
+	                    context2.drawImage(imageObj, 0, 0);
+
+	                    // .toBlob requires https://github.com/blueimp/JavaScript-Canvas-to-Blob --> linked to below...
+	                    canvas2.toBlob(function(my_file){
+	                        
+
+	                    	// BEFORE uploading, hide modal and show fullscreen loader spinner
+							// a little spinner fullscreen overlay loader loading
+				        	$('#modalTakePic').modal('hide'); 
+				        	var over = '<div id="overlay"><div id="loader_text">Processing slide...</div><div class="loader"></div></div>';
+				        	$(over).appendTo('body'); 
+				        	//$('#overlay').remove();                    	
+
+	                        //POST CANVAS AS BLOB TO TRANSLOADIT so we can create thumbs
+	                        uploadToServer(my_file, $('#params_pic_upload').val(), $('#signature_pic_upload').val(), function(progress, assemblyURL) {
+	                            console.log('progress2:-->' + progress)
+	                            if(progress === 'DONE') {
+	                                //console.log('Upload complete: ' + assemblyURL);                                
+			                        // END processing in here...
+			                        checkAssemblyStatus(assemblyURL,1);                                              
+	                            }
+	                        });
+	                    });
+	                };				
+				});
+			});					
+				
+		});
+    </script>
+</html>
+
